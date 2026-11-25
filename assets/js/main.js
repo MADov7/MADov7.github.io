@@ -101,6 +101,7 @@ function art(c) {
   }
   return `<div class="art-ic acc">${icon(c.cat)}</div>`;
 }
+const certTitle = (c) => (lang === "ar" && c.titleAr ? c.titleAr : c.title);
 const certMeta = (c) => [c.issuer ? L(c.issuer) : "", c.date ? L(c.date) : ""].filter(Boolean).join(" · ");
 
 /* ================= render ================= */
@@ -124,10 +125,10 @@ function renderCerts() {
   visible = CERTS.filter((c) => filter === "all" || c.cat === filter);
   $("#cgrid").innerHTML = visible.map((c, i) => {
     const img = c.images[0];
-    return `<button class="cert rv" type="button" data-i="${i}" aria-label="${esc(c.title)}">
+    return `<button class="cert rv" type="button" data-i="${i}" aria-label="${esc(certTitle(c))}">
       <div class="ph ${img ? "" : "art"}">${img ? `<img src="${img.thumb}" alt="" loading="lazy" decoding="async">` : art(c)}</div>
       ${c.verify ? `<span class="vf mono">✓ VERIFY</span>` : ""}
-      <div class="body"><h3>${esc(c.title)}</h3>${c.titleAr && lang === "ar" ? `<div class="ar">${esc(c.titleAr)}</div>` : ""}<div class="meta">${esc(certMeta(c))}</div></div>
+      <div class="body"><h3>${esc(certTitle(c))}</h3>${lang === "ar" && c.titleAr ? `<div class="ar">${esc(c.title)}</div>` : ""}<div class="meta">${esc(certMeta(c))}</div></div>
     </button>`;
   }).join("");
   $("#countNote").textContent = t("certs.count").replace("{n}", visible.length).replace("{t}", CERTS.length);
@@ -152,7 +153,7 @@ function renderSkills() {
   $("#sgrid").innerHTML = DATA.skills.map((g) => `<div class="sgroup rv"><h3>${esc(L(g.name))}</h3><div class="chips">${g.items.map((it) => `<span>${esc(it.name)}</span>`).join("")}</div></div>`).join("");
   observe($$("#sgrid .rv"));
 }
-function renderDots() { $("#dots").innerHTML = FEAT.map((_, i) => `<i class="${i === capIdx ? "on" : ""}"></i>`).join(""); }
+function renderDots() { $("#dots").innerHTML = FEAT.map((c, i) => `<button type="button" role="tab" data-k="${i}" class="${i === capIdx ? "on" : ""}" aria-selected="${i === capIdx}" aria-label="${esc(certTitle(c))}"></button>`).join(""); }
 function renderAll() { renderStatic(); renderFilters(); renderCerts(); renderTimeline(); renderProjects(); renderSkills(); renderDots(); setCaption(capIdx, true); }
 
 /* reveal on scroll (dynamic content) */
@@ -183,7 +184,7 @@ function openLB(i) {
   $("#lbImg").innerHTML = imgs.length ? `<img src="${imgs[0].src}" alt="${esc(c.title)}">` : `<div class="art">${art(c)}</div>`;
   const row = (k, v) => (v ? `<dt>${esc(t(k))}</dt><dd>${v}</dd>` : "");
   $("#lbInfo").innerHTML = `<div class="kicker mono">${String(lbI + 1).padStart(2, "0")} / ${visible.length}</div>
-    <h3 id="lbTitle">${esc(c.title)}</h3>${c.titleAr ? `<div class="ar" style="color:var(--muted)">${esc(c.titleAr)}</div>` : ""}
+    <h3 id="lbTitle">${esc(certTitle(c))}</h3>${lang === "ar" && c.titleAr ? `<div class="ar" style="color:var(--muted)">${esc(c.title)}</div>` : ""}
     <dl>${row("lb.cat", esc(L(DATA.categories[c.cat])))}${row("lb.kind", esc(L(c.kind)))}${row("lb.issuer", c.issuer ? esc(L(c.issuer)) : "")}${row("lb.date", c.date ? esc(L(c.date)) : "")}
     ${row("lb.hours", c.hours ? `${c.hours} ${esc(t("lb.hoursUnit"))}` : "")}${row("lb.instructor", c.instructor ? `<bdi>${esc(c.instructor)}</bdi>` : "")}${row("lb.id", c.credentialId ? `<span class="mono" style="font-size:13px">${esc(c.credentialId)}</span>` : "")}</dl>
     ${c.verify ? `<a class="btn" style="margin-top:14px;align-self:flex-start" href="${esc(c.verify)}" target="_blank" rel="noopener">${esc(t("ui.verify"))}</a>` : ""}
@@ -297,11 +298,11 @@ function sceneTheme() {
 sceneTheme();
 
 /* scroll-linked state */
-const S = { hero: 0, ringIn: 0, ring: 0, out: 0, mx: 0, my: 0 };
+const S = { hero: 0, ringIn: 0, ringOut: 0, out: 0, mx: 0, my: 0 };
 ScrollTrigger.create({ trigger: "#hero", start: "top top", end: "bottom top", scrub: true, onUpdate: (s) => (S.hero = s.progress) });
-ScrollTrigger.create({ trigger: "#featured", start: "top bottom", end: "top top", scrub: true, onUpdate: (s) => (S.ringIn = s.progress) });
-ScrollTrigger.create({ trigger: "#featured", start: "top top", end: () => "+=" + innerHeight * (NF - 1) * (mobile() ? 0.45 : 0.6), pin: true, scrub: true, invalidateOnRefresh: true,
-  onUpdate: (s) => { S.ring = s.progress; setCaption(Math.round(s.progress * (NF - 1))); } });
+// the featured stage is CSS-sticky; the ring fades in as it arrives and out as it leaves
+ScrollTrigger.create({ trigger: "#featured", start: "top 85%", end: "top top", scrub: true, onUpdate: (s) => (S.ringIn = s.progress) });
+ScrollTrigger.create({ trigger: "#featured", start: "bottom bottom", end: "bottom 25%", scrub: true, onUpdate: (s) => (S.ringOut = s.progress) });
 ScrollTrigger.create({ trigger: "#certificates", start: "top bottom", end: "top 35%", scrub: true, onUpdate: (s) => (S.out = s.progress) });
 addEventListener("pointermove", (e) => { S.mx = e.clientX / innerWidth - 0.5; S.my = e.clientY / innerHeight - 0.5; });
 
@@ -311,20 +312,40 @@ function setCaption(i, force) {
   const first = force; capIdx = i; const c = FEAT[i];
   const apply = () => {
     $("#capIdx").textContent = String(i + 1).padStart(2, "0") + " / " + String(NF).padStart(2, "0");
-    $("#capTitle").innerHTML = lang === "ar" && c.titleAr ? esc(c.titleAr) : `<span class="cap-en">${esc(c.title)}</span>`;
+    $("#capTitle").textContent = certTitle(c);
+    $("#capSub").textContent = lang === "ar" && c.titleAr ? c.title : "";
     $("#capMeta").textContent = certMeta(c);
     const a = $("#capLink");
-    if (c.verify) { a.href = c.verify; a.style.display = ""; a.querySelector("span").textContent = t("ui.verify"); } else { a.removeAttribute("href"); a.querySelector("span").textContent = L(c.kind); }
-    $$("#dots i").forEach((d, k) => d.classList.toggle("on", k === i));
+    if (c.verify) { a.href = c.verify; a.querySelector("span").textContent = t("ui.verify"); } else { a.removeAttribute("href"); a.querySelector("span").textContent = L(c.kind); }
+    $$("#dots button").forEach((d, k) => { d.classList.toggle("on", k === i); d.setAttribute("aria-selected", k === i); });
   };
   if (first || reduce) return apply();
-  gsap.timeline().to(".caption > *", { y: -10, opacity: 0, duration: 0.16, stagger: 0.03 }).add(apply)
-    .fromTo(".caption > *", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.04, ease: "power3.out" });
+  const parts = ".caption > *:not(.cap-bar)";
+  gsap.timeline().to(parts, { y: -10, opacity: 0, duration: 0.16, stagger: 0.03 }).add(apply)
+    .fromTo(parts, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.04, ease: "power3.out" });
 }
+
+/* featured ring: turns by itself, one certificate every AUTO seconds */
+const STEP = (Math.PI * 2) / Math.max(1, NF), AUTO = 5;
+let ringTarget = 0, autoAcc = 0, autoPaused = false;
+function goTo(i) {
+  if (NF < 2) return;
+  const next = ((i % NF) + NF) % NF;
+  let d = next - capIdx; if (d > NF / 2) d -= NF; if (d < -NF / 2) d += NF;
+  autoAcc = 0; if (!d) return;
+  ringTarget -= d * STEP; setCaption(next);
+}
+$("#dots").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) goTo(+b.dataset.k); });
+$(".caption").addEventListener("pointerenter", () => (autoPaused = true));
+$(".caption").addEventListener("pointerleave", () => (autoPaused = false));
+const lbEl = $("#lb"), capBar = $("#capBar");
 
 const clock = new THREE.Clock(); const lerp = (a, b, k) => a + (b - a) * k; const sm = { rx: 0, ry: 0 };
 function frame() {
-  const tm = clock.getElapsedTime(); const ringVis = S.ringIn * (1 - S.out); const side = html.dir === "rtl" ? -1 : 1;
+  const tm = clock.getElapsedTime(); const dt = Math.min(0.1, tm - (frame.last ?? tm)); frame.last = tm;
+  const ringVis = S.ringIn * (1 - S.ringOut); const side = html.dir === "rtl" ? -1 : 1;
+  if (ringVis > 0.5 && !autoPaused && !document.hidden && !lbEl.classList.contains("open")) { autoAcc += dt; if (autoAcc >= AUTO) goTo(capIdx + 1); }
+  capBar.style.transform = `scaleX(${Math.min(1, autoAcc / AUTO)})`;
   pm.uniforms.t.value = tm; heartMat.uniforms.t.value = tm; pm.uniforms.warm.value = S.out;
   sm.rx = lerp(sm.rx, S.my * 0.35, 0.05); sm.ry = lerp(sm.ry, S.mx * 0.5, 0.05);
   ico.rotation.set(tm * 0.12 + sm.rx, tm * 0.18 + sm.ry, 0); ico2.rotation.set(-tm * 0.07, tm * 0.1, 0);
@@ -332,8 +353,7 @@ function frame() {
   const away = Math.min(1, S.hero * 1.15);
   core.position.set(lerp(innerWidth > 900 ? 2.7 * side : 0, 0, away), lerp(0, 2.3, S.ringIn) - S.out, lerp(0, -1.5, away) + lerp(0, -5, S.ringIn));
   core.scale.setScalar(lerp(mobile() ? 0.75 : 1, 0.55, S.ringIn) * (1 + Math.sin(tm * 1.4) * 0.015));
-  const target = -S.ring * (NF - 1) * (Math.PI * 2 / NF);
-  ring.rotation.y = lerp(ring.rotation.y, target, 0.08); ring.rotation.x = sm.rx * 0.3;
+  ring.rotation.y = lerp(ring.rotation.y, ringTarget, 0.045); ring.rotation.x = sm.rx * 0.3;
   ring.position.set(innerWidth > 900 ? 1.4 * side : 0, lerp(-0.9, mobile() ? -0.2 : -0.35, S.ringIn), 0); ring.scale.setScalar(lerp(0.55, 1, ringVis));
   cards.forEach((c) => { const f = Math.max(0, Math.cos(c.a + ring.rotation.y));
     c.mat.opacity = ringVis * (0.1 + 0.9 * Math.pow(f, 3)); c.em.opacity = ringVis * Math.pow(f, 6) * 0.9;
@@ -357,9 +377,10 @@ if (!reduce) {
   gsap.from([".alt-name", ".lead", ".stats", ".cta"], { y: 30, opacity: 0, filter: "blur(8px)", duration: 1.1, stagger: 0.1, ease: "power3.out", delay: 0.5 });
 }
 $$(".count").forEach((el) => gsap.to({ v: 0 }, { v: +el.dataset.to, duration: reduce ? 0 : 2.2, delay: 0.9, ease: "power2.out", onUpdate() { el.textContent = Math.round(this.targets()[0].v); }, onComplete() { countsDone = true; } }));
-gsap.to(".hero > *:not(.cue)", { y: -110, opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom 15%", scrub: true } });
+// scroll-out runs on a wrapper with explicit start values, so it never inherits the intro's hidden state
+gsap.fromTo(".hero-in", { y: 0, opacity: 1 }, { y: -110, opacity: 0, ease: "none", immediateRender: false, scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom 15%", scrub: true } });
 gsap.fromTo(".patent", { rotateY: -70, rotateX: 16, scale: 0.82, opacity: 0 }, { rotateY: 0, rotateX: 0, scale: 1, opacity: 1, ease: "power2.out", scrollTrigger: { trigger: "#patent", start: "top 88%", end: "center 62%", scrub: 1 } });
-gsap.to(".patent", { y: -60, opacity: 0.2, ease: "none", scrollTrigger: { trigger: "#patent", start: "bottom 70%", end: "bottom top", scrub: true } });
+gsap.fromTo("#patent", { y: 0, opacity: 1 }, { y: -60, opacity: 0.2, ease: "none", immediateRender: false, scrollTrigger: { trigger: "#patent", start: "bottom 70%", end: "bottom top", scrub: true } });
 gsap.from("#featured .sec-head", { y: 80, opacity: 0, scrollTrigger: { trigger: "#featured", start: "top 85%", end: "top 25%", scrub: true } });
 gsap.from(".caption", { y: 60, opacity: 0, rotateX: -20, scrollTrigger: { trigger: "#featured", start: "top 60%", end: "top top", scrub: true } });
 $$(".sec-head").forEach((h) => { if (h.closest("#featured")) return; gsap.from(h.children, { y: 60, opacity: 0, stagger: 0.08, scrollTrigger: { trigger: h, start: "top 88%", end: "top 50%", scrub: true } }); });

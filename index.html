@@ -54,6 +54,7 @@
 <main>
   <!-- HERO -->
   <section class="hero" id="hero">
+    <div class="hero-in">
     <div class="tag mono" data-scramble="// COMPUTER ENGINEER · CYBERSECURITY · SIEM / SOC"></div>
     <h1 id="heroName"></h1>
     <div class="alt-name" data-i18n="name.alt">Soud Alkabban</div>
@@ -66,6 +67,7 @@
     <div class="cta">
       <a class="btn magnet" href="#contact" data-i18n="hero.cta1"></a>
       <a class="btn ghost magnet" href="#featured" data-i18n="hero.cta2"></a>
+    </div>
     </div>
     <div class="cue mono">SCROLL<i></i></div>
   </section>
@@ -83,17 +85,21 @@
 
   <!-- FEATURED CERTIFICATES (3D ring, pinned) -->
   <section id="featured" class="sec">
-    <div class="sec-head">
-      <div class="kicker mono">// 02 · FEATURED CERTIFICATES</div>
-      <h2 data-i18n="featured.title"></h2>
+    <div class="stage">
+      <div class="sec-head">
+        <div class="kicker mono">// 02 · FEATURED CERTIFICATES</div>
+        <h2 data-i18n="featured.title"></h2>
+      </div>
+      <div class="caption" aria-live="polite">
+        <div class="idx mono" id="capIdx">01</div>
+        <h3 id="capTitle"></h3>
+        <div class="cap-sub ltr" id="capSub"></div>
+        <div class="meta" id="capMeta"></div>
+        <a class="pill" id="capLink" target="_blank" rel="noopener"><i></i><span data-i18n="ui.verify"></span></a>
+        <div class="cap-bar"><i id="capBar"></i></div>
+      </div>
+      <div class="dots" id="dots" role="tablist"></div>
     </div>
-    <div class="caption" aria-live="polite">
-      <div class="idx mono" id="capIdx">01</div>
-      <h3 id="capTitle"></h3>
-      <div class="meta" id="capMeta"></div>
-      <a class="pill" id="capLink" target="_blank" rel="noopener"><i></i><span data-i18n="ui.verify"></span></a>
-    </div>
-    <div class="dots" id="dots"></div>
   </section>
 
   <!-- ALL CERTIFICATES -->

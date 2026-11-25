@@ -4,7 +4,7 @@ export const DATA = {
   {
    "n": "07",
    "title": "CompTIA Cybersecurity Analyst+: Network Security Concepts",
-   "titleAr": null,
+   "titleAr": "CompTIA CySA+: مفاهيم أمن الشبكات",
    "cat": "cyber",
    "kind": {
     "ar": "شارة إتمام دورة (Skillsoft)",
@@ -44,7 +44,7 @@ export const DATA = {
   {
    "n": "08",
    "title": "CompTIA Cybersecurity Analyst+: Security & Network Monitoring",
-   "titleAr": null,
+   "titleAr": "CompTIA CySA+: الأمن ومراقبة الشبكات",
    "cat": "cyber",
    "kind": {
     "ar": "شارة إتمام دورة (Skillsoft)",
@@ -84,7 +84,7 @@ export const DATA = {
   {
    "n": "09",
    "title": "CompTIA Cybersecurity Analyst+: Secure Coding & Digital Forensics",
-   "titleAr": null,
+   "titleAr": "CompTIA CySA+: البرمجة الآمنة والأدلة الرقمية",
    "cat": "cyber",
    "kind": {
     "ar": "شارة إتمام دورة (Skillsoft)",
@@ -124,7 +124,7 @@ export const DATA = {
   {
    "n": "10",
    "title": "CompTIA Cybersecurity Analyst+: Digital Forensics",
-   "titleAr": null,
+   "titleAr": "CompTIA CySA+: الأدلة الرقمية",
    "cat": "cyber",
    "kind": {
     "ar": "شارة إتمام دورة (Skillsoft)",
@@ -164,7 +164,7 @@ export const DATA = {
   {
    "n": "11",
    "title": "CompTIA Cybersecurity Analyst+: Cloud Computing & Cybersecurity",
-   "titleAr": null,
+   "titleAr": "CompTIA CySA+: الحوسبة السحابية والأمن السيبراني",
    "cat": "cyber",
    "kind": {
     "ar": "شارة إتمام دورة (Skillsoft)",
@@ -204,7 +204,7 @@ export const DATA = {
   {
    "n": "12",
    "title": "CompTIA Cybersecurity Analyst+: Vulnerability & Penetration Testing",
-   "titleAr": null,
+   "titleAr": "CompTIA CySA+: اختبار الثغرات والاختراق",
    "cat": "cyber",
    "kind": {
     "ar": "شارة إتمام دورة (Skillsoft)",
@@ -244,7 +244,7 @@ export const DATA = {
   {
    "n": "13",
    "title": "CompTIA Network+: Network Security Concepts & Solutions",
-   "titleAr": null,
+   "titleAr": "CompTIA Network+: مفاهيم وحلول أمن الشبكات",
    "cat": "net",
    "kind": {
     "ar": "شارة إتمام دورة (Skillsoft)",
@@ -284,7 +284,7 @@ export const DATA = {
   {
    "n": "14",
    "title": "Certified in Cybersecurity (CC): Networking & Security Infrastructure",
-   "titleAr": null,
+   "titleAr": "Certified in Cybersecurity: الشبكات والبنية التحتية الأمنية",
    "cat": "cyber",
    "kind": {
     "ar": "شارة إتمام دورة (Skillsoft)",
@@ -324,7 +324,7 @@ export const DATA = {
   {
    "n": "06",
    "title": "SOC Analyst Level 1 & 2 Masterclass",
-   "titleAr": null,
+   "titleAr": "محلّل مركز العمليات الأمنية (SOC): المستوى الأول والثاني",
    "cat": "cyber",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -358,7 +358,7 @@ export const DATA = {
   {
    "n": "15",
    "title": "Certified in Cybersecurity (CC): The CIA Triad and Core Security Concepts",
-   "titleAr": null,
+   "titleAr": "Certified in Cybersecurity: ثالوث CIA ومفاهيم الأمن الأساسية",
    "cat": "cyber",
    "kind": {
     "ar": "شارة إتمام دورة (Skillsoft)",
@@ -398,7 +398,7 @@ export const DATA = {
   {
    "n": "43",
    "title": "Ethical Hacker",
-   "titleAr": null,
+   "titleAr": "الهاكر الأخلاقي (Ethical Hacker)",
    "cat": "cyber",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -432,7 +432,7 @@ export const DATA = {
   {
    "n": "05",
    "title": "Complete Wazuh course! From basic to advanced v2026 28+ hours",
-   "titleAr": null,
+   "titleAr": "دورة Wazuh الكاملة: من الأساسيات إلى المتقدّم",
    "cat": "cyber",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -500,7 +500,7 @@ export const DATA = {
   {
    "n": "39",
    "title": "Fortinet FortiSIEM - A Step-by-Step BootCamp",
-   "titleAr": null,
+   "titleAr": "Fortinet FortiSIEM: معسكر خطوة بخطوة",
    "cat": "cyber",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -534,7 +534,7 @@ export const DATA = {
   {
    "n": "38",
    "title": "Wazuh XDR from Beginner to Expert",
-   "titleAr": null,
+   "titleAr": "Wazuh XDR: من المبتدئ إلى الخبير",
    "cat": "cyber",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -568,7 +568,7 @@ export const DATA = {
   {
    "n": "04",
    "title": "Wazuh SIEM: From Zero to Professional Security Engineer",
-   "titleAr": null,
+   "titleAr": "Wazuh SIEM: من الصفر إلى مهندس أمن محترف",
    "cat": "cyber",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -602,7 +602,7 @@ export const DATA = {
   {
    "n": "46",
    "title": "Claude Mastery",
-   "titleAr": null,
+   "titleAr": "احتراف Claude",
    "cat": "ai",
    "kind": {
     "ar": "شهادة دورة قصيرة (15 موضوع)",
@@ -636,7 +636,7 @@ export const DATA = {
   {
    "n": "48",
    "title": "AI Mastery",
-   "titleAr": null,
+   "titleAr": "احتراف الذكاء الاصطناعي",
    "cat": "ai",
    "kind": {
     "ar": "شهادة دورة قصيرة (17 موضوع)",
@@ -670,7 +670,7 @@ export const DATA = {
   {
    "n": "45",
    "title": "Claude Advanced Workflows",
-   "titleAr": null,
+   "titleAr": "سير العمل المتقدّم مع Claude",
    "cat": "ai",
    "kind": {
     "ar": "شهادة دورة قصيرة (15 درس)",
@@ -704,7 +704,7 @@ export const DATA = {
   {
    "n": "47",
    "title": "Claude Vibe Coding",
-   "titleAr": null,
+   "titleAr": "البرمجة التفاعلية مع Claude (Vibe Coding)",
    "cat": "ai",
    "kind": {
     "ar": "شهادة دورة قصيرة (16 درس)",
@@ -738,7 +738,7 @@ export const DATA = {
   {
    "n": "49",
    "title": "ChatGPT",
-   "titleAr": null,
+   "titleAr": "دورة ChatGPT",
    "cat": "ai",
    "kind": {
     "ar": "شهادة دورة قصيرة (20 درس)",
@@ -772,7 +772,7 @@ export const DATA = {
   {
    "n": "50",
    "title": "Nano Banana",
-   "titleAr": null,
+   "titleAr": "دورة Nano Banana",
    "cat": "ai",
    "kind": {
     "ar": "شهادة دورة قصيرة (16 درس)",
@@ -806,7 +806,7 @@ export const DATA = {
   {
    "n": "51",
    "title": "Kling",
-   "titleAr": null,
+   "titleAr": "دورة Kling",
    "cat": "ai",
    "kind": {
     "ar": "شهادة دورة قصيرة (16 درس)",
@@ -840,7 +840,7 @@ export const DATA = {
   {
    "n": "03",
    "title": "The Complete Full-Stack Web Development Bootcamp",
-   "titleAr": null,
+   "titleAr": "معسكر تطوير الويب المتكامل (Full-Stack)",
    "cat": "dev",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -874,7 +874,7 @@ export const DATA = {
   {
    "n": "02",
    "title": "Windows Server 2022 Administration",
-   "titleAr": null,
+   "titleAr": "إدارة ويندوز سيرفر 2022",
    "cat": "sys",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -908,7 +908,7 @@ export const DATA = {
   {
    "n": "41",
    "title": "Introduction to Critical Infrastructure Protection (ICIP)",
-   "titleAr": null,
+   "titleAr": "مقدمة في حماية البنية التحتية الحيوية (ICIP)",
    "cat": "cyber",
    "kind": {
     "ar": "شهادة (0.5 CPE)",
@@ -942,7 +942,7 @@ export const DATA = {
   {
    "n": "01",
    "title": "Active Directory on Windows Server",
-   "titleAr": null,
+   "titleAr": "Active Directory على ويندوز سيرفر",
    "cat": "sys",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -976,7 +976,7 @@ export const DATA = {
   {
    "n": "16",
    "title": "CODED Cybersecurity Bootcamp",
-   "titleAr": null,
+   "titleAr": "معسكر الأمن السيبراني من CODED",
    "cat": "cyber",
    "kind": {
     "ar": "شهادة إتمام (بوتكامب)",
@@ -1010,7 +1010,7 @@ export const DATA = {
   {
    "n": "19",
    "title": "Symposium: Forensic Evidence and Applied Sciences",
-   "titleAr": "ندوة الأدلة الجنائية والعلوم التطبيقية: تكامل بحثي وتطبيقي نحو منظومة عدالة مستدامة",
+   "titleAr": "ندوة الأدلة الجنائية والعلوم التطبيقية",
    "cat": "cyber",
    "kind": {
     "ar": "شهادة شكر وتقدير (مشاركة في ندوة)",
@@ -1044,7 +1044,7 @@ export const DATA = {
   {
    "n": "27",
    "title": "Getting Started with Cisco Packet Tracer",
-   "titleAr": null,
+   "titleAr": "مدخل إلى Cisco Packet Tracer",
    "cat": "net",
    "kind": {
     "ar": "شهادة إتمام دورة",
@@ -1078,7 +1078,7 @@ export const DATA = {
   {
    "n": "26",
    "title": "Kuwait Airways: IT Department Internship (Web Development)",
-   "titleAr": null,
+   "titleAr": "تدريب قسم تقنية المعلومات، الخطوط الجوية الكويتية",
    "cat": "dev",
    "kind": {
     "ar": "تدريب (شهادة شكر وتقدير)",
@@ -1112,7 +1112,7 @@ export const DATA = {
   {
    "n": "22",
    "title": "Google AI",
-   "titleAr": null,
+   "titleAr": "برنامج Google AI",
    "cat": "ai",
    "kind": {
     "ar": "شهادة تقدير (برنامج)",
@@ -1214,7 +1214,7 @@ export const DATA = {
   {
    "n": "28",
    "title": "Cloud Hero Workshop",
-   "titleAr": "شهادة حضور ورشة Cloud Hero",
+   "titleAr": "ورشة Cloud Hero",
    "cat": "net",
    "kind": {
     "ar": "شهادة حضور ورشة (4 ساعات)",
@@ -1282,7 +1282,7 @@ export const DATA = {
   {
    "n": "21",
    "title": "Design Using Artificial Intelligence (Midjourney)",
-   "titleAr": "التصميم باستخدام الذكاء الاصطناعي Midjourney",
+   "titleAr": "التصميم باستخدام الذكاء الاصطناعي (Midjourney)",
    "cat": "ai",
    "kind": {
     "ar": "شهادة إتمام دورة أونلاين",
@@ -1316,7 +1316,7 @@ export const DATA = {
   {
    "n": "30",
    "title": "NBK Internship Program",
-   "titleAr": null,
+   "titleAr": "برنامج التدريب في بنك الكويت الوطني",
    "cat": "fin",
    "kind": {
     "ar": "تدريب (شهادة حضور)",
@@ -1356,7 +1356,7 @@ export const DATA = {
   {
    "n": "29",
    "title": "PRIME Program 2024",
-   "titleAr": null,
+   "titleAr": "برنامج PRIME 2024 (مكافحة غسل الأموال وتمويل الإرهاب)",
    "cat": "fin",
    "kind": {
     "ar": "شهادة مشاركة",
@@ -1390,7 +1390,7 @@ export const DATA = {
   {
    "n": "25",
    "title": "PCEP – Certified Entry-Level Python Programmer (PCEP-30-01)",
-   "titleAr": null,
+   "titleAr": "PCEP: مبرمج Python معتمد (المستوى المبتدئ)",
    "cat": "dev",
    "kind": {
     "ar": "شهادة احترافية (اختبار رسمي)",
@@ -1424,7 +1424,7 @@ export const DATA = {
   {
    "n": "40",
    "title": "Python PCEP: Become Certified Entry-Level Python Programmer",
-   "titleAr": null,
+   "titleAr": "تحضير اختبار PCEP: مبرمج Python معتمد",
    "cat": "dev",
    "kind": {
     "ar": "شهادة إتمام دورة (تحضير لاختبار PCEP)",
@@ -1458,7 +1458,7 @@ export const DATA = {
   {
    "n": "20",
    "title": "Generative AI Explorer",
-   "titleAr": null,
+   "titleAr": "مستكشف الذكاء الاصطناعي التوليدي",
    "cat": "ai",
    "kind": {
     "ar": "شهادة",
@@ -1479,7 +1479,7 @@ export const DATA = {
   {
    "n": "23",
    "title": "Application Industry using AI (UI/UX)",
-   "titleAr": null,
+   "titleAr": "صناعة التطبيقات بالذكاء الاصطناعي (UI/UX)",
    "cat": "ai",
    "kind": {
     "ar": "شهادة",
@@ -1500,7 +1500,7 @@ export const DATA = {
   {
    "n": "24",
    "title": "AI-Landscape",
-   "titleAr": null,
+   "titleAr": "خريطة الذكاء الاصطناعي (AI Landscape)",
    "cat": "ai",
    "kind": {
     "ar": "شهادة",
@@ -1521,7 +1521,7 @@ export const DATA = {
   {
    "n": "31",
    "title": "CMA and Excel",
-   "titleAr": null,
+   "titleAr": "CMA و Excel",
    "cat": "fin",
    "kind": {
     "ar": "شهادة",
@@ -1542,7 +1542,7 @@ export const DATA = {
   {
    "n": "32",
    "title": "LOYAC The Insider Experience",
-   "titleAr": null,
+   "titleAr": "لوياك: The Insider Experience",
    "cat": "intern",
    "kind": {
     "ar": "تدريب",
@@ -1566,7 +1566,7 @@ export const DATA = {
   {
    "n": "33",
    "title": "LOYAC Darb Internship Program",
-   "titleAr": null,
+   "titleAr": "برنامج درب للتدريب من لوياك",
    "cat": "intern",
    "kind": {
     "ar": "تدريب",
@@ -1590,7 +1590,7 @@ export const DATA = {
   {
    "n": "35",
    "title": "Calculus Competition",
-   "titleAr": null,
+   "titleAr": "مسابقة التفاضل والتكامل",
    "cat": "acad",
    "kind": {
     "ar": "مسابقة / جائزة",
