@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>سعود الكبان · Soud Alkabban</title>
-<meta name="description" content="Soud Alkabban: computer engineer, cybersecurity and SIEM/SOC. Certificates, projects, German patent. سعود الكبان: مهندس كمبيوتر، أمن سيبراني.">
+<meta name="description" content="Soud Alkabban: computer engineer, cybersecurity and SIEM/SOC. Certificates, projects, German utility model. سعود الكبان: مهندس كمبيوتر، أمن سيبراني.">
 <meta property="og:title" content="Soud Alkabban · سعود الكبان">
-<meta property="og:description" content="Computer engineer · Cybersecurity · SIEM / SOC · German patent">
+<meta property="og:description" content="Computer engineer · Cybersecurity · SIEM / SOC · German utility model">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#070b14">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='4' transform='rotate(45 16 16)' fill='%2335f2c4'/%3E%3C/svg%3E">
@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Manrope:wght@500;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/site.css?v=3">
 </head>
 <body>
 <canvas id="gl" aria-hidden="true"></canvas>
@@ -78,8 +78,13 @@
       <div class="seal"><div class="flag" role="img" aria-label="Germany"></div></div>
       <div class="kicker mono">// 01 · INNOVATION &amp; IP</div>
       <h2 data-i18n="patent.title"></h2>
-      <div class="pnum mono">DPMA · G25252DE · MAY 2025</div>
+      <div class="pinv" data-i18n="patent.invention"></div>
+      <div class="pnum mono">DPMA · DE 20 2025 102 127 U1 · 29.04.2025</div>
       <p data-i18n="patent.text"></p>
+      <div class="pbtns">
+        <button class="btn magnet" type="button" id="patentView" data-i18n="patent.view"></button>
+        <a class="btn ghost magnet" href="https://patents.google.com/patent/DE202025102127U1" target="_blank" rel="noopener" data-i18n="patent.verify"></a>
+      </div>
     </div>
   </section>
 
@@ -130,6 +135,7 @@
       <h2 data-i18n="projects.title"></h2>
       <p data-i18n="projects.text"></p>
     </div>
+    <div class="filters" id="pfilters" role="toolbar"></div>
     <div class="pgrid" id="pgrid"></div>
   </section>
 
@@ -176,6 +182,6 @@
 <script src="assets/vendor/ScrollTrigger.min.js"></script>
 <script src="assets/vendor/lenis.min.js"></script>
 <script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.js" } }</script>
-<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/main.js?v=3"></script>
 </body>
 </html>

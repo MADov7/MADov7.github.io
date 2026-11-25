@@ -4,8 +4,8 @@ Personal portfolio: computer engineer, cybersecurity and SIEM / SOC.
 
 **Live:** https://madov7.github.io
 
-- German patent (DPMA, G25252DE, 2025)
-- 48 certificates and achievements, with official verification links where they exist
+- German utility model (DPMA, No. 20 2025 102 127, 2025)
+- 48 certificates and achievements, 20 projects, with official verification links where they exist
 - Experience, education, projects and skills
 - Arabic / English, dark / light, 3D scroll experience (three.js, GSAP ScrollTrigger, Lenis)
 
